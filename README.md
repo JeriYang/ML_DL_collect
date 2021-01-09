@@ -21,3 +21,10 @@
 
 ## 学习链接
 1. [Attention本质原理+3大优点+5大类型](https://medium.com/@pkqiang49/%E4%B8%80%E6%96%87%E7%9C%8B%E6%87%82-attention-%E6%9C%AC%E8%B4%A8%E5%8E%9F%E7%90%86-3%E5%A4%A7%E4%BC%98%E7%82%B9-5%E5%A4%A7%E7%B1%BB%E5%9E%8B-e4fbe4b6d030)
+
+# Transformers
+## 本质原理
+通过attention机制，和query, keys, values来计算向量的得分，然后选取得分高的向量。
+
+## 学习链接
+1. [多图带你读懂 Transformers 的工作原理](https://www.leiphone.com/news/201903/ELyRKiBJOx8agF1Q.html)
