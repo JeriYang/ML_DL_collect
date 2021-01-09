@@ -50,3 +50,32 @@
 
 ## 学习链接
 1）. [AR模型与AE模型](https://www.cnblogs.com/mj-selina/p/12392839.html)
+
+# 4.RandomForest、GBDT、XGBoost
+## 本质原理
+    1) RandomForest(随机森林)
+    随机森林是一个用随机方式建立的，包含多个决策树的集成分类器。Bagging:从原始的数据集中采取有放回的抽样
+    
+    2) GBDT(Gradient Boost Decision Tree，梯度提升树)
+    GBDT是以决策树为基学习器的迭代算法，注意GBDT里的决策树都是回归树而不是分类树。
+    Boosting根据错误率来取样（Boosting初始化时对每一个训练样例赋相等的权重1／n，然后用该算法对训练集训练t轮，
+    每次训练后，对训练失败的样例赋以较大的权重），因此Boosting的分类精度要优于Bagging。
+    
+    3) XGBoost(eXtreme Gradient Boosting)
+    与GBDT本质类似，GBDT是机器学习算法，XGBoost是该算法的工程实现。
+    GBDT采用的是数值优化的思维, 用的最速下降法去求解Loss Function的最优解, 其中用CART决策树去拟合负梯度, 用牛顿法求步长.
+    XGboost用的解析的思维, 对Loss Function展开到二阶近似, 求得解析解, 用解析解作为Gain来建立决策树, 使得Loss Function最优.
+
+    
+    4) XGB并行原理
+    注意xgboost的并行不是tree粒度的并行，xgboost也是一次迭代完成才能进行下一次迭代的（第t次迭代的代价函数里面包含了前面t-1次迭代的预测值）。
+    xgboost的并行是在特征粒度上的。我们知道，决策树的学习最耗时的一个步骤就是对特征的值进行排序（因为要确定最佳分割点），
+    xgboost在训练之前，预先对数据进行排序，然后保存block结构，后面的迭代中重复的使用这个结构，大大减小计算量。
+    这个block结构也使得并行称为了可能，在进行节点的分裂时，需要计算每个特征的增益，最终选增益最大的那个特征去做分裂，那么各个特征的增益计算就可以开多线程进行。
+    为了降低排序成本，xgboost将数据存储在内存单元中，我们称之为块（block）。每个块中的数据以压缩列（CSC）格式存储，每列按相应的特征值排序。
+    此输入数据布局仅需要在训练之前计算一次，并且可以在以后的迭代中重复使用，大大的减少了计算量。这个block结构使得并行变成了可能。XGBoost 也支持Hadoop实现
+
+## 学习链接
+1). [随机森林和GBDT](https://zhuanlan.zhihu.com/p/37676630)<br>
+2). [XGBoost和GBDT的优缺点及XGBoost可并行的原因](https://blog.csdn.net/GFDGFHSDS/article/details/104595261)<br>
+3). [XGB详解](https://www.cnblogs.com/mantch/p/11164221.html)
