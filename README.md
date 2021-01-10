@@ -83,7 +83,11 @@
 1). [随机森林和GBDT](https://zhuanlan.zhihu.com/p/37676630)<br>
 2). [XGBoost和GBDT的优缺点及XGBoost可并行的原因](https://blog.csdn.net/GFDGFHSDS/article/details/104595261)<br>
 3). [XGB详解](https://www.cnblogs.com/mantch/p/11164221.html)
-
+详细原理和推导：<br>
+1).[（一）提升树模型：GBDT原理与实践](https://blog.csdn.net/anshuai_aw1/article/details/82888222)
+2).[（二）提升树模型：Xgboost原理与实践](https://blog.csdn.net/anshuai_aw1/article/details/82970489#_604)
+3).[Xgboost系统设计：分块并行、缓存优化和Blocks for Out-of-core Computation](https://blog.csdn.net/anshuai_aw1/article/details/85093106)
+4).[（三）提升树模型：Lightgbm原理深入探究](https://blog.csdn.net/anshuai_aw1/article/details/83659932)
 # 5.RNN,LSTM,GRU
 ## 本质原理
     1).RNN：将当前RNN单元的输入和前一个RNN单元输出的Hidden State组合起来，经过一个Tanh激活函数，生成当前单元的Hidden State。
