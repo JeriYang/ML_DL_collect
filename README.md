@@ -79,3 +79,15 @@
 1). [随机森林和GBDT](https://zhuanlan.zhihu.com/p/37676630)<br>
 2). [XGBoost和GBDT的优缺点及XGBoost可并行的原因](https://blog.csdn.net/GFDGFHSDS/article/details/104595261)<br>
 3). [XGB详解](https://www.cnblogs.com/mantch/p/11164221.html)
+
+# 5.RNN,LSTM,GRU
+## 本质原理
+    1).RNN：将当前RNN单元的输入和前一个RNN单元输出的Hidden State组合起来，经过一个Tanh激活函数，生成当前单元的Hidden State。
+    2).LSTM: Forget Gate决定哪些历史信息要保留；
+             Input Gate决定哪些新的信息要添加进来；
+             Output Gate决定下一个Hidden State要携带哪些历史信息。
+    3).GRU:只有两个Gates: Reset Gate和Update Gate
+           一个用于决定哪些信息用于输入，一个用于决定下一个Hidden State要携带哪些历史信息。
+
+## 学习链接
+1).[动图详解LSTM和GRU](http://www.banbeichadexiaojiubei.com/index.php/2020/06/26/%E5%8A%A8%E5%9B%BE%E8%AF%A6%E8%A7%A3lstm%E5%92%8Cgru/)
